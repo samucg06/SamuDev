@@ -13,15 +13,17 @@ def string_usuario():
 def invertir_cadenas():
     limpiar_consola()
     cadena_texto = string_usuario()
+    cadena_original = cadena_texto
     limpiar_consola()
-    palabra_invertida = ""
+    cadena_invertida = ""
 
     for _ in cadena_texto:
         ultimo_caracter = cadena_texto[-1]
-        palabra_invertida += ultimo_caracter
+        cadena_invertida += ultimo_caracter
         cadena_texto = cadena_texto[:-1]
 
-    print(f"La oración invertida es:\n\n{palabra_invertida}")
+    print(f"Cadena original: {cadena_original}")
+    print(f"Cadena invertida: {cadena_invertida}")
 
 
 if __name__ == "__main__":
