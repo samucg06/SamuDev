@@ -50,7 +50,7 @@ def area_poligono():
         area_rectangulo = base * altura
         print(f"El area del Cuadrado es: {area_rectangulo} {unidad_longitud}^2")
         return
-    elif poligono == 3:
+    else:
         area_triangulo = (base * altura) / 2
         print(f"El area del Cuadrado es: {area_triangulo} {unidad_longitud}^2")
         return
