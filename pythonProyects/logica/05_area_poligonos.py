@@ -7,12 +7,24 @@ def limpiar_consola():
 
 
 def poligono_usuario():
-    poligono = int(
-        input(
-            "¿A qué poligono le desea calcular el area?\n\n1. Cuadrado\n2. Rectángulo\n3. Triángulo\n\n==> "
+    try:
+        poligono = int(
+            input(
+                "¿A qué poligono le desea calcular el area?\n\n1. Cuadrado\n2. Rectángulo\n3. Triángulo\n\n==> "
+            )
         )
-    )
-    return poligono
+        if poligono != 1 or poligono != 2 or poligono != 3:
+            limpiar_consola()
+            print("Poligono Invalido\n")
+            input("Enter para continuar... ")
+            area_poligono()
+        else:
+            return poligono
+    except ValueError:
+        limpiar_consola()
+        print("Debe ingresar unicamente valores númericos\n")
+        input("Enter para continuar... ")
+        area_poligono()
 
 
 def valores_poligono():
