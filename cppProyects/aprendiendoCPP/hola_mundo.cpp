@@ -11,7 +11,7 @@ int main()
 {
 
     // Imprimimos "Hola Mundo" en la consola
-    cout << "Hola Mundo" << endl;
+    cout << "Hola Mundo\n";
 
     // Indicamos que el programa termina correctamente
     return 0;
