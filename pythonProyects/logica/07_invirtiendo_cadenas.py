@@ -15,7 +15,7 @@ def invertir_cadenas():
     cadena_texto = string_usuario()
     cadena_original = cadena_texto
     limpiar_consola()
-    cadena_invertida = ""
+    cadena_invertida = str()
 
     for _ in cadena_texto:
         ultimo_caracter = cadena_texto[-1]
