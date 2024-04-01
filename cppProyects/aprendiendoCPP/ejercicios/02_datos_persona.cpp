@@ -14,7 +14,7 @@ int main()
     cout << "Ingrese su sexo [M/F]: ";
     cin >> sexo;
 
-    cout << "Ingrese su altura en m: ";
+    cout << "Ingrese su altura en metros: ";
     cin >> altura;
 
     cout << endl
