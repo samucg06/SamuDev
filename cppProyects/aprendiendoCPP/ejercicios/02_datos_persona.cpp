@@ -20,7 +20,7 @@ int main()
     cout << endl
          << "Edad: " << edad << " primaveras" << endl
          << "Sexo: " << sexo << endl
-         << "Altura: " << altura << " m" << endl;
+         << "Altura: " << altura << " metros" << endl;
 
     return 0;
 }
