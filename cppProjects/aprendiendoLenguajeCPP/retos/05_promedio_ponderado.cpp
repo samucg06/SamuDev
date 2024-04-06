@@ -4,18 +4,18 @@ using namespace std;
 
 float promedio_ponderado()
 {
-    float nota_practicas, nota_teorica, nota_participacion, promedio_ponderado;
+    float primer_parcial, segundo_parcial, talleres_quices, promedio_ponderado;
 
-    cout << "Ingrese la nota de practicas (30%): ";
-    cin >> nota_practicas;
+    cout << "Ingrese la nota del primer parcial (30%): ";
+    cin >> primer_parcial;
 
-    cout << "Ingrese la nota teorica (60%): ";
-    cin >> nota_teorica;
+    cout << "Ingrese la nota del segundo parcial (50%): ";
+    cin >> segundo_parcial;
 
-    cout << "Ingrese la nota de participacion (10%): ";
-    cin >> nota_participacion;
+    cout << "Ingrese la nota de la nota de talleres / quices (20%): ";
+    cin >> talleres_quices;
 
-    promedio_ponderado = (nota_practicas * 0.30) + (nota_teorica * 0.60) + (nota_participacion * 0.10);
+    promedio_ponderado = (primer_parcial * 0.30) + (segundo_parcial * 0.50) + (talleres_quices * 0.20);
 
     return promedio_ponderado;
 }
