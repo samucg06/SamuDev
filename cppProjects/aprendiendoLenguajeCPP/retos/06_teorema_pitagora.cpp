@@ -23,8 +23,17 @@ float encontrar_cateto()
     cout << "Ingresa el valor del cateto dado: ";
     cin >> cateto_a;
 
-    cateto_b = pow(hipotenusa, 2) - pow(cateto_a, 2);
-    cateto_b = sqrt(cateto_b);
+    if (cateto_a >= hipotenusa)
+    {
+        cout << endl
+             << "La longitud del cateto no puede ser mayor o igual a la medida de la hipotenusa de un triangulo." << endl;
+        encontrar_cateto();
+    }
+    else
+    {
+        cateto_b = pow(hipotenusa, 2) - pow(cateto_a, 2);
+        cateto_b = sqrt(cateto_b);
+    }
 
     return cateto_b;
 }
