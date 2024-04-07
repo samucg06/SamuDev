@@ -67,7 +67,7 @@ int main()
     }
     else if (procedimiento == 2)
     {
-        cout.precision(3);
+        cout.precision(4);
         float cateto = encontrar_cateto();
         cout << endl
              << "El valor del cateto faltante del triangulo es: " << cateto;
