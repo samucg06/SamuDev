@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib> // para system("cls")
 
 using namespace std;
 
