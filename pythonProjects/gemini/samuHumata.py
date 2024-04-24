@@ -18,14 +18,24 @@ def extraer_texto_pdf(archivo_pdf):
 
 def click_directorio(archivo_pdf_directorio):
     archivo_pdf_directorio = filedialog.askopenfilename()
+    print(f"Archivo Seleccionado: {archivo_pdf_directorio}")
 
-    if archivo_pdf_directorio != "":
+    if archivo_pdf_directorio == "":
         print("Error")
     else:
-        extraer_texto_pdf(archivo_pdf_directorio)
+        extension_valida = ".pdf"
+
+        archivo_pdf_directorio, extension_archivo = os.path.splitext(
+            archivo_pdf_directorio
+        )
+        if extension_archivo == extension_valida:
+            extraer_texto_pdf(archivo_pdf_directorio + extension_archivo)
+            pass
+        else:
+            print("No es un archivo PDF")
 
 
-def interfaz_grafica():
+def main():
     interfaz = tk.Tk()
     entrada = tk.StringVar(interfaz)
 
@@ -63,7 +73,7 @@ def interfaz_grafica():
     )
 
     # Etiquetas
-    tk.Label(
+    label_directorio = tk.Label(
         interfaz,
         # Contenido de la Etiqueta
         text="Welcome to SamuHumata!",
@@ -93,10 +103,8 @@ def interfaz_grafica():
 
     interfaz.mainloop()
 
-
-def main():
-    pass
+    print(f"Interfaz: {interfaz}")
 
 
 if __name__ == "__main__":
-    interfaz_grafica()
+    pass

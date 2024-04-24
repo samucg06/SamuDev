@@ -1,10 +1,18 @@
 import os
 import pdfplumber
 import google.generativeai as genai
+import time
 
 
 def limpiar_consola():
     os.system("cls" if os.name == "nt" else "clear")
+
+
+def tiempo_compilacion():
+    inicio = time.time()
+    final = time.time()
+    compilacion = final - inicio
+    return compilacion
 
 
 def extraer_texto_pdf(ruta_pdf):
@@ -97,6 +105,8 @@ def mostrar_respuesta(respuesta):
 
 
 def main():
+    compilacion = tiempo_compilacion()
+    print(compilacion)
     genai.configure(api_key="AIzaSyCgAs97GTGiqS9wqlbSE7aQaxbtKQuFCmk")
     model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
