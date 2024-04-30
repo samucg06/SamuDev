@@ -1,18 +1,19 @@
 from tkinter import filedialog
-from docx import document
+import docx
 import os
+import docx.document
 import google.generativeai as genai
 import pdfplumber
 
 
 def limpiar_consola():
-    os.system("cls")
+    os.system("cls" if os.name == "nt" else "clear")
 
 
-def generar_respuesta(pregunta, texto_pdf, model):
+def generar_respuesta(pregunta, texto, model):
     try:
         response = model.generate_content(
-            f"De la siguiente pregunta {pregunta}, responda en base al siguiente texto: {texto_pdf}"
+            f"{pregunta}, responda en base al siguiente texto: {texto}"
         )
         return response.text
     except Exception as e:
@@ -21,7 +22,7 @@ def generar_respuesta(pregunta, texto_pdf, model):
 
 
 def extraer_texto_docx(archivo_docx):
-    doc = document(archivo_docx)
+    doc = docx.Document(archivo_docx)
     texto = ""
     for parrafo in doc.paragraphs:
         texto += parrafo.text
@@ -44,26 +45,29 @@ def extraer_texto_pdf(archivo_pdf):
         return texto
 
 
-def verificacion_extension_archivo():
+def verificacion_extension_archivo(ruta_archivo):
     if ruta_archivo == "":
         print("Error")
+        return False
     else:
         extension_pdf, extension_txt, extension_docx = ".pdf", ".txt", ".docx"
 
         ruta_archivo, extension_archivo = os.path.splitext(ruta_archivo)
         if extension_archivo == extension_pdf:
             texto = extraer_texto_pdf(ruta_archivo + extension_archivo)
+            return True, texto
         elif extension_archivo == extension_txt:
             texto = extraer_texto_txt(ruta_archivo + extension_archivo)
+            return True, texto
         elif extension_archivo == extension_docx:
             texto = extraer_texto_docx(ruta_archivo + extension_archivo)
+            return True, texto
         else:
             print("No es un archivo PDF")
-            return False
-    return True, texto
+            return False, ""
 
 
-def main(ruta_archivo):
+def main():
     genai.configure(api_key="AIzaSyCgAs97GTGiqS9wqlbSE7aQaxbtKQuFCmk")
     model = genai.GenerativeModel("gemini-1.5-pro-latest")
     ruta_archivo = filedialog.askopenfilename()
