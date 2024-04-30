@@ -106,12 +106,12 @@ def mostrar_respuesta(respuesta):
 
 def main():
     compilacion = tiempo_compilacion()
-    print(compilacion)
     genai.configure(api_key="AIzaSyCgAs97GTGiqS9wqlbSE7aQaxbtKQuFCmk")
     model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
     while True:
         limpiar_consola()
+        print(compilacion, "\n")
         ruta_pdf = input("Ingrese la ruta del PDF que desea analizar: ").replace(
             "\\", "/"
         )
