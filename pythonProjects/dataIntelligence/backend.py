@@ -90,7 +90,7 @@ def verificacion_extension_archivo(ruta_archivo):
 
 def main():
     genai.configure(api_key="AIzaSyCgAs97GTGiqS9wqlbSE7aQaxbtKQuFCmk")
-    model = genai.GenerativeModel("gemini-1.5-pro-latest")
+    model = genai.GenerativeModel("gemini-pro")
     ruta_archivo = filedialog.askopenfilename(
         title="Selecciona un archivo",
         defaultextension=".docx",
